@@ -1,0 +1,37 @@
+#include<stdio.h>
+
+void nhapmang(int a[], int &n) {
+	n = 0;
+	int y;
+    printf("nhap mang (nhap 0 de dung) : ");
+	do {
+		scanf("%d", &y);
+		if (y != 0)
+			a[n++] = y;
+	} while(y != 0);
+}
+
+void xuatmang(int a[], int n) {
+    for(int i = 0; i < n; i++) {
+        printf("%3d", a[i]);
+    }
+}
+
+float soDuong(int a[], int n){
+    if(n==0)
+    return 0;
+    if(a[n-1] > 0)
+    return soDuong(a,n-1) + 1;
+    return soDuong(a,n-1);
+}
+
+int main(){
+    int n = 0;
+    int a[n];
+    int soduong;
+    nhapmang(a,n);
+    printf("mang vua nhap: ");
+    xuatmang(a,n);
+    printf("\ntong so duong: ");
+    soDuong(a,n);
+}
